@@ -1,18 +1,28 @@
 class Solution {
 public:
-    int i=0;
     bool isPalindrome(string s) {
-        for (char &c : s) c = tolower(c);
-        s.erase(remove_if(s.begin(), s.end(), [](char c){ return !isalnum(c); }), s.end());
-        return check(s,0);
-    }
-    bool check(string &s,int i){
-        if(i>=s.size()/2){
-            return true;
+        int n = s.size();
+
+        int low = 0;
+        int high = n-1;
+
+        while(low < high){
+
+            while(low < high && !isalnum(s[low])){
+                low++;
+            }
+
+            while(low < high && !isalnum(s[high])){
+                high--;
+            }
+
+            if(tolower(s[low]) != tolower(s[high])){
+                return false;
+            }
+            low++;
+            high--;
         }
-        if(s[i]!=s[s.size()-i-1]){
-            return false;
-        }
-        return check(s,i+1);
+
+        return true;
     }
 };
