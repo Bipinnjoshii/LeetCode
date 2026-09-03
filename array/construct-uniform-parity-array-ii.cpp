@@ -3,25 +3,18 @@ public:
     bool uniformArray(vector<int>& nums1) {
         int n = nums1.size();
 
-        sort(nums1.begin(),nums1.end());
-        
-        bool even = true;
-        int el = 0;
+        int miniodd = INT_MAX;
+
         for(int i = 0 ; i < n ; i++){
             if(nums1[i] % 2 != 0){
-                even = false;
-                el = nums1[i];
-                break;
+                miniodd = min(miniodd,nums1[i]);
             }
         }
 
-        if(even){
-            return true;
-        }
-        else{
+        if(miniodd != INT_MAX){
             for(int i = 0 ; i < n ; i++){
                 if(nums1[i] % 2 == 0){
-                    if(nums1[i] - el >= 1){
+                    if(nums1[i] - miniodd >= 1){
                         continue;
                     }
                     else{
@@ -30,6 +23,7 @@ public:
                 }
             }
         }
+
         return true;
     }
 };
