@@ -1,8 +1,10 @@
 class Solution {
 public:
     bool uniformArray(vector<int>& nums1) {
-        int n= nums1.size();
+        int n = nums1.size();
 
+        sort(nums1.begin(),nums1.end());
+        
         bool even = true;
         int el = 0;
         for(int i = 0 ; i < n ; i++){
