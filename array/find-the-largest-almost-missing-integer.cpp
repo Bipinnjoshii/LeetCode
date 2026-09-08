@@ -4,16 +4,23 @@ public:
         int n = nums.size();
         int maxi = INT_MIN;
 
+        vector<int>freq(51,0);
         unordered_set<int>st;
+        
+        for(int i = 0 ; i < n ; i++){
+            freq[nums[i]]++;
+        }
 
         if(k == 1){
 
-            if(n == 2 && nums[0] == nums[n-1]){
+            if(nums[0] == nums[n-1]){
                 return -1;
             }
 
             for(int i = 0 ; i < n ; i++){
+                if(freq[nums[i]] == 1){
                 maxi = max(maxi,nums[i]);
+                }
             }
 
             return maxi;
@@ -30,6 +37,8 @@ public:
         if(nums[0] == nums[n-1]){
             return -1;
         }
+
+
         for(int i = 1 ; i < n-1 ; i++){
             st.insert(nums[i]);
         }
