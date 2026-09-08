@@ -2,7 +2,7 @@ class Solution {
 public:
     int largestInteger(vector<int>& nums, int k) {
         int n = nums.size();
-        int maxi = INT_MIN;
+        int maxi = -1;
 
         vector<int>freq(51,0);
 
@@ -22,9 +22,6 @@ public:
                 }
             }
 
-            if(maxi == INT_MIN){
-                return -1;
-            }
             return maxi;
         }
 
@@ -68,10 +65,7 @@ public:
         else if(maxi == INT_MIN){
             return -1;
         }
-        else{
-            return maxi;
-        }
         
-        return -1;
+        return maxi;
     }
 };
