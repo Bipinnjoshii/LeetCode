@@ -27,17 +27,11 @@ public:
             return maxi;
         }
 
+        if(nums[0] == nums[n-1]){
+            return -1;
+        }
         for(int i = 1 ; i < n-1 ; i++){
             st.insert(nums[i]);
-        }
-
-        if(st.size() == 0){
-            if(k == 1 && nums[0] == nums[n-1]){
-                return -1;
-            }
-            else{
-                return max(nums[0],nums[1]);
-            }
         }
 
         int other = -1;
