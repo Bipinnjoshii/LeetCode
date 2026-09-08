@@ -22,6 +22,9 @@ public:
                 }
             }
 
+            if(maxi == INT_MIN){
+                return -1;
+            }
             return maxi;
         }
 
@@ -62,7 +65,13 @@ public:
                 return -1;
             }
         }
+        else if(maxi == INT_MIN){
+            return -1;
+        }
+        else{
+            return maxi;
+        }
         
-        return maxi;
+        return -1;
     }
 };
