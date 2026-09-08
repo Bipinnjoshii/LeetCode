@@ -19,6 +19,14 @@ public:
             return maxi;
         }
 
+        if(k == n){
+            for(int i = 0 ; i < n ; i++){
+                maxi = max(maxi,nums[i]);
+            }
+
+            return maxi;
+        }
+
         for(int i = 1 ; i < n-1 ; i++){
             st.insert(nums[i]);
         }
