@@ -7,13 +7,15 @@ public:
         unordered_set<int>st;
 
         if(k == 1){
+
+            if(n == 2 && nums[0] == nums[n-1]){
+                return -1;
+            }
+
             for(int i = 0 ; i < n ; i++){
                 maxi = max(maxi,nums[i]);
             }
 
-            if(maxi == 0){
-                return -1;
-            }
             return maxi;
         }
 
