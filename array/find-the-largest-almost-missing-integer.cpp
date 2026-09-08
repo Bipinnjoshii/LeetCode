@@ -2,8 +2,20 @@ class Solution {
 public:
     int largestInteger(vector<int>& nums, int k) {
         int n = nums.size();
+        int maxi = INT_MIN;
 
         unordered_set<int>st;
+
+        if(k == 1){
+            for(int i = 0 ; i < n ; i++){
+                maxi = max(maxi,nums[i]);
+            }
+
+            if(maxi == 0){
+                return -1;
+            }
+            return maxi;
+        }
 
         for(int i = 1 ; i < n-1 ; i++){
             st.insert(nums[i]);
@@ -18,7 +30,6 @@ public:
             }
         }
 
-        int maxi = INT_MIN;
         int other = -1;
         int idx = -1;
 
