@@ -5,7 +5,6 @@ public:
         int maxi = INT_MIN;
 
         vector<int>freq(51,0);
-        unordered_set<int>st;
 
         for(int i = 0 ; i < n ; i++){
             freq[nums[i]]++;
@@ -39,12 +38,9 @@ public:
         }
 
 
-        for(int i = 1 ; i < n-1 ; i++){
-            st.insert(nums[i]);
-        }
-
         int other = -1;
         int idx = -1;
+
 
         if(nums[0] > nums[n-1]){
             maxi = nums[0];
@@ -58,8 +54,13 @@ public:
         }
 
 
-        if(st.find(maxi) != st.end()){
-            return other;
+        if(freq[maxi] != 1){
+            if(freq[other] == 1){
+                return other;
+            }
+            else{
+                return -1;
+            }
         }
         
         return maxi;
