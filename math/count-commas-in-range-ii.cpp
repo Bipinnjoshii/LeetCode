@@ -2,21 +2,23 @@ class Solution {
 public:
     long long countCommas(long long n) {
         long long cnt = 0;
-        if(n>=1000){
-            cnt += (long long)(min(n,(long long)999999)-1000+1)*1;
+
+        if(n < 1000){
+            return 0;
         }
-        if(n>=1000000){
-            cnt += (long long)(min(n,(long long)999999999)-1000000+1)*2;
+        else if(n >=1000 && n <= 999999){
+            cnt += n-999;
         }
-        if(n >= 1000000000){
-            cnt += (min(n, (long long)999999999999) - 1000000000 + 1) * 3;
+        else if(n >= 1000000 && n <= 999999999){
+            cnt += n - 999999;
         }
-        if(n >= 1000000000000){
-            cnt += (min(n, (long long)999999999999999) - 1000000000000 + 1) * 4;
+        else if(n >= 1000000000 && n <= 999999999999){
+            cnt += n - 999999999;
         }
-        if(n >= 1000000000000000){
-            cnt += (n - 1000000000000000 + 1) * 5;
+        else if(n >= 1000000000000 && n <= 1000000000000000){
+            cnt += n - 999999999999;
         }
+
         return cnt;
     }
 };
