@@ -8,64 +8,39 @@ public:
         int lsum = 0;
         int rsum = 0;
 
-        int cnt = 1;
 
         for(int i = 0 ; i < n ; i++){
-
             if(num[i] == '?'){
-
-                if(cnt % 2 == 1){
-                    num[i] = '9';
+                if(i < n/2){
+                    lcnt++;
                 }
-
-                cnt++;
+                else{
+                    rcnt++;
+                }
             }
-
+            else{
+                if(i < n/2){
+                    lsum += num[i] - '0';
+                }
+                else{
+                    rsum += num[i] - '0';
+                }
+            }
         }
 
+        int totalcnt = lcnt + rcnt;
 
-        for(int i = 0 ; i < n ; i++){
-
-            if(i < n/2 && num[i] == '?'){
-                lcnt++;
-            }
-
-            if(i>=n/2 && num[i] == '?'){
-                rcnt++;
-            }
-
+        if(totalcnt % 2 == 1){
+            return true;
         }
 
+        int left = 2 * lsum + (9 * lcnt);
+        int right = 2 * rsum + (9 * rcnt);
 
-        for(int i = 0 ; i < n ; i++){
-
-            if(i < n/2 && num[i] != '?'){
-                lsum += num[i] - '0';
-            }
-
-            if(i >= n/2 && num[i] != '?'){
-                rsum += num[i] - '0';
-            }
-
-        }
-
-        //lsum += lsum + (lcnt * 9);
-        //rsum += rsum + (rcnt * 9);
-
-        if(rcnt > lcnt){
-            if(rsum > lsum){
-                return true;
-            }
-            
+        if(left == right){
             return false;
         }
-        else if(lcnt > rcnt){
-            if(lsum > rsum){
-                return true;
-            }
-            return false;
-        }
-        
-        return false;
+
+        return true;
     }
 };
