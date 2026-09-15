@@ -12,6 +12,11 @@ public:
                 return true;
             }
         }
+        else if(rec1[0] == rec2[0]){
+            if(rec2[3] > rec1[3]){
+                return true;
+            }
+        }
 
         return false;
     }
