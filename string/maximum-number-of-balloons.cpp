@@ -14,7 +14,7 @@ public:
         int sum = 0;
         int mini = INT_MAX;
 
-        for(int i = 0; i < n; i++){
+        for(int i = 0; i < 26; i++){
 
             if(i == 'b' - 'a'){
                 mini = min(mini,freq[i]);
