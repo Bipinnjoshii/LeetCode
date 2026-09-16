@@ -24,7 +24,7 @@ public:
             }
             else if(i == 'l' - 'a'){
                 if(freq[i] >= 2){
-                    mini = min(mini,freq[i]);
+                    mini = min(mini,freq[i]/2);
                 }
                 else{
                     return 0;
@@ -32,7 +32,7 @@ public:
             }
             else if(i == 'o' - 'a'){
                 if(freq[i] >= 2){
-                    mini = min(mini,freq[i]);
+                    mini = min(mini,freq[i]/2);
                 }
                 else{
                     return 0;
