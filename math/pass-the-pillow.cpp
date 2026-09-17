@@ -1,13 +1,14 @@
 class Solution {
 public:
     int passThePillow(int n, int time) {
-        int cnt = time + 1;
 
-        int ans = cnt % n;
+        int pass = (time+1) % n;
 
-        if(ans == 0){
+        if(pass == 0){
             return n;
         }
+        
+        int ans = n - pass;
         return ans;
     }
 };
