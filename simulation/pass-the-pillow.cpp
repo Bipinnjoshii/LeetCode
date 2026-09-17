@@ -1,13 +1,14 @@
 class Solution {
 public:
     int passThePillow(int n, int time) {
+        int cycle = 2 * (n - 1);
+        int t = time % cycle;
 
-        int pass = time + 1;
-
-        if(pass > n){
-            return(n - (pass - n));
+        if(t < n){
+            return t + 1;
         }
-        
-        return pass;
+        else{
+            return cycle - t + 1;
+        }
     }
 };
